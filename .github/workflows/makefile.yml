@@ -24,7 +24,6 @@ jobs:
         prepare: |
           pkg install -y git
         run: |
-          df -h
           env ROOTDIR=/Users/runner/work/tools make update
           make dvd
           make print-IMAGESDIR
