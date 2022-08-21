@@ -19,7 +19,9 @@ jobs:
       uses: vmactions/freebsd-vm@v0
       with:
         usesh: true
-        
+        mem: 4096
+        prepare: |
+          pkg install -y git
         run: |
           env ROOTDIR=/Users/runner/work/tools make update
           make dvd
