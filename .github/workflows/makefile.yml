@@ -19,10 +19,12 @@ jobs:
       uses: vmactions/freebsd-vm@v0
       with:
         usesh: true
+        sync: sshfs
         mem: 4096
         prepare: |
           pkg install -y git
         run: |
+          df -h
           env ROOTDIR=/Users/runner/work/tools make update
           make dvd
           make print-IMAGESDIR
