@@ -21,8 +21,7 @@ jobs:
         usesh: true
         
         run: |
-          env ROOTDIR=/Users/runner/work/tools
-          make update
+          env ROOTDIR=/Users/runner/work/tools make update
           make dvd
           make print-IMAGESDIR
       
