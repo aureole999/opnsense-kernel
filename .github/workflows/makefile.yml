@@ -1,0 +1,30 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Maximize build disk space
+      uses: easimon/maximize-build-space@v6
+
+    - uses: actions/checkout@v3
+    
+    - name: set env
+      run: env ROOTDIR=`pwd`
+      
+    - name: update
+      run: make update
+      
+    - name: build
+      run: make dvd
+      
+    - name: output
+      run: make print-IMAGESDIR
